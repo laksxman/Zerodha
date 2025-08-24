@@ -188,6 +188,11 @@ app.use(bodyParser.json());
 //     res.send("Position data Done!");
 // })
 
+app.get("/", (req, res) => {
+  res.send("Hello from Zerodha Clone backend 🚀");
+});
+
+
 app.get("/allHoldings", async(req,res) => {
     let allHoldings = await HoldingsModel.find({});
     res.json(allHoldings);
