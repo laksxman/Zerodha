@@ -84,7 +84,7 @@ const app = express();
 app.use(cors());
 // const cors = require("cors");
 app.use(cors({
-  origin: "https://myfrontend.onrender.com", // your deployed frontend
+  origin: "https://zerodhafrontend-0qv9.onrender.com", // your deployed frontend
 }));
 
 app.use(express.json()); 
