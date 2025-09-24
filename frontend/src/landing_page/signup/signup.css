@@ -1,0 +1,83 @@
+/* signup.css */
+
+/* Container styling */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/* Mobile input & OTP input */
+.signup-container input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.signup-container button {
+  background-color: #0d6efd; /* Bootstrap primary color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.signup-container button:hover {
+  background-color: #0b5ed7;
+}
+
+/* OTP container */
+.otp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* OTP input */
+.otp-container input[type="number"] {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* OTP verify button */
+.otp-container button {
+  background-color: #198754; /* Bootstrap success color */
+  margin-top: 15px;
+}
+
+.otp-container button:hover {
+  background-color: #157347;
+}
+
+/* Links and text */
+.signup-container p,
+.signup-container a {
+  font-size: 14px;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-container a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.signup-container a:hover {
+  text-decoration: underline;
+}
