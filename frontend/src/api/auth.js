@@ -24,7 +24,7 @@ import axios from "axios";
 // const API = axios.create({ baseURL: "http://localhost:3002/api/auth" });
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "http://localhost:3002/api/auth",
+  baseURL: process.env.REACT_APP_API_URL || "https://my-backend.onrender.com/api/auth",
 });
 
 
