@@ -1,6 +1,5 @@
-// src/landing_page/signup/Signup.js
-import React, { useState } from "react";
-import { requestOTP, verifyOTP } from "../../api/auth"; 
+import React, { useState, useRef } from "react";
+import { requestOTP } from "../../api/auth"; 
 import OtpVerify from "./OtpVerify";
 import "./signup.css";
 
@@ -8,19 +7,24 @@ function Signup() {
   const [mobile, setMobile] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [otpFromBackend, setOtpFromBackend] = useState("");
+  const otpInputRef = useRef(null); // optional for auto-focus
 
-  // Send OTP
   const handleGetOtp = async () => {
     if (!mobile) return alert("Please enter your mobile number");
+
     try {
       const mobileWithCode = mobile.startsWith("+") ? mobile : "+91" + mobile;
+      const res = await requestOTP(mobileWithCode);
 
-      const res = await requestOTP(mobileWithCode); // backend request
       const otp = res.data.otp;
 
-      // Save OTP to state and show alert in OtpVerify
       setOtpFromBackend(otp);
       setOtpSent(true);
+
+      // Optional: auto-focus OTP input after alert
+      setTimeout(() => {
+        otpInputRef.current?.focus();
+      }, 100);
     } catch (err) {
       console.error(err);
       alert("Failed to send OTP");
@@ -37,8 +41,7 @@ function Signup() {
         Open a free demat and trading account online
       </h1>
       <h3 className="mt-3 text-muted text-center">
-        Start investing brokerage free and join a community of 1.6+ crore
-        investors and traders
+        Start investing brokerage free and join a community of 1.6+ crore investors and traders
       </h3>
 
       <div className="row mt-5">
@@ -55,16 +58,13 @@ function Signup() {
               <div className="mobile-input">
                 <span className="ms-1">🇮🇳 +91</span>
                 <input
-                  type="number"
+                  type="text"
                   placeholder="Enter your mobile number"
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
                 />
               </div>
-              <button
-                className="btn btn-primary"
-                onClick={handleGetOtp}
-              >
+              <button className="btn btn-primary" onClick={handleGetOtp}>
                 Get OTP
               </button>
             </div>
@@ -73,12 +73,12 @@ function Signup() {
               mobile={mobile.startsWith("+") ? mobile : "+91" + mobile}
               otpFromBackend={otpFromBackend}
               onSuccess={handleOtpSuccess}
+              otpInputRef={otpInputRef} // pass ref for focus
             />
           )}
 
           <p className="text-muted mt-3">
-            By proceeding, you agree to the Zerodha{" "}
-            <a href="">terms</a> & <a href="">privacy policy</a>
+            By proceeding, you agree to the Zerodha <a href="">terms</a> & <a href="">privacy policy</a>
           </p>
         </div>
       </div>

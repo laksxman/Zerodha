@@ -1,6 +1,6 @@
 /* signup.css */
 
-/* Container styling */
+/* ===== Container styling ===== */
 .signup-container {
   display: flex;
   flex-direction: column;
@@ -8,76 +8,121 @@
   margin-top: 50px;
 }
 
-/* Mobile input & OTP input */
-.signup-container input[type="number"] {
+.signup-container input[type="text"] {
   width: 100%;
-  padding: 10px;
+  max-width: 300px;
+  padding: 12px 15px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   outline: none;
   margin-top: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Buttons */
+.signup-container input[type="text"]:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.3);
+}
+
+/* ===== Buttons styling ===== */
 .signup-container button {
-  background-color: #0d6efd; /* Bootstrap primary color */
+  background-color: #0d6efd; /* Bootstrap primary */
   color: #fff;
   border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
+  border-radius: 8px;
+  padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
   margin-top: 15px;
-  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .signup-container button:hover {
   background-color: #0b5ed7;
+  transform: translateY(-2px);
 }
 
-/* OTP container */
+/* ===== OTP container ===== */
 .otp-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
-/* OTP input */
-.otp-container input[type="number"] {
+.otp-container input[type="text"] {
   width: 200px;
-  padding: 10px;
-  font-size: 16px;
+  padding: 12px;
+  font-size: 18px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   text-align: center;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* OTP verify button */
+.otp-container input[type="text"]:focus {
+  border-color: #198754; /* green */
+  box-shadow: 0 0 5px rgba(25, 135, 84, 0.3);
+}
+
 .otp-container button {
-  background-color: #198754; /* Bootstrap success color */
+  background-color: #198754; /* Bootstrap success */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
   margin-top: 15px;
+  width: 200px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .otp-container button:hover {
   background-color: #157347;
+  transform: translateY(-2px);
 }
 
-/* Links and text */
+/* ===== Links and text ===== */
 .signup-container p,
 .signup-container a {
   font-size: 14px;
   color: #6c757d;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .signup-container a {
   color: #0d6efd;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .signup-container a:hover {
   text-decoration: underline;
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 768px) {
+  .signup-container input[type="text"],
+  .signup-container button,
+  .otp-container input[type="text"],
+  .otp-container button {
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col {
+    margin-left: 0 !important;
+    padding: 0 20px;
+  }
 }
