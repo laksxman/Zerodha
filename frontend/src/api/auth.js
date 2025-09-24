@@ -21,7 +21,12 @@
 
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:3002/api/auth" });
+// const API = axios.create({ baseURL: "http://localhost:3002/api/auth" });
+
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_URL || "http://localhost:3002/api/auth",
+});
+
 
 export const requestOTP = (mobile) => API.post("/request-otp", { mobile });
 export const verifyOTP = (mobile, otp) => API.post("/verify-otp", { mobile, otp });
