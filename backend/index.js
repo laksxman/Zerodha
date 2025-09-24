@@ -82,7 +82,13 @@ const app = express();
 
 // Middleware
 app.use(cors());
+const cors = require("cors");
+app.use(cors({
+  origin: "https://myfrontend.onrender.com", // your deployed frontend
+}));
+
 app.use(express.json()); 
+
 
 // Routes
 app.use("/api/auth", authRoutes);
