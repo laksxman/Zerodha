@@ -127,7 +127,7 @@ app.post("/newOrder", async (req, res) => {
 });
 
 mongoose
-  .connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGO_URL)
   .then(() => {
     console.log("✅ MongoDB connected!");
     app.listen(PORT, () => {
