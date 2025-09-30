@@ -84,7 +84,11 @@ const app = express();
 app.use(cors());
 // const cors = require("cors");
 app.use(cors({
-  origin: "https://zerodhafrontend-0qv9.onrender.com", // your deployed frontend
+  origin: [
+    "https://zerodhafrontend-0qv9.onrender.com",
+    "https://zerodhadashboard3.onrender.com"
+  ],
+  credentials: true
 }));
 
 app.use(express.json()); 
