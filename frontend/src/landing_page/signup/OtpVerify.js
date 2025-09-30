@@ -10,7 +10,6 @@ export default function OtpVerify({ mobile, otpFromBackend, onSuccess, otpInputR
       alert(`Your OTP is: ${otpFromBackend}`);
       setOtp(otpFromBackend);
 
-      // Auto-focus input if ref provided
       otpInputRef?.current?.focus();
     }
   }, [otpFromBackend, otpInputRef]);
@@ -36,7 +35,7 @@ export default function OtpVerify({ mobile, otpFromBackend, onSuccess, otpInputR
         placeholder="Enter OTP"
         value={otp}
         onChange={(e) => setOtp(e.target.value)}
-        ref={otpInputRef} // attach ref for auto-focus
+        ref={otpInputRef} 
       />
       <button className="btn btn-success" onClick={handleVerifyOtp}>
         Verify OTP

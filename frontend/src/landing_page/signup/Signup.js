@@ -7,7 +7,7 @@ function Signup() {
   const [mobile, setMobile] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [otpFromBackend, setOtpFromBackend] = useState("");
-  const otpInputRef = useRef(null); // optional for auto-focus
+  const otpInputRef = useRef(null); 
 
   const handleGetOtp = async () => {
     if (!mobile) return alert("Please enter your mobile number");
@@ -21,7 +21,6 @@ function Signup() {
       setOtpFromBackend(otp);
       setOtpSent(true);
 
-      // Optional: auto-focus OTP input after alert
       setTimeout(() => {
         otpInputRef.current?.focus();
       }, 100);
@@ -73,7 +72,7 @@ function Signup() {
               mobile={mobile.startsWith("+") ? mobile : "+91" + mobile}
               otpFromBackend={otpFromBackend}
               onSuccess={handleOtpSuccess}
-              otpInputRef={otpInputRef} // pass ref for focus
+              otpInputRef={otpInputRef} 
             />
           )}
 

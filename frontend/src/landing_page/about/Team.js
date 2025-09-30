@@ -8,7 +8,7 @@ function Team() {
         {/* Left Side: Image */}
         <div className="col-md-4 text-center">
           <img
-            src="/media/images/nithinKamath.jpg"  // Ensure this is in public/media/images/
+            src="/media/images/nithinKamath.jpg"
             alt="Founder"
             style={{
               borderRadius: "50%",
